@@ -1,0 +1,93 @@
+
+SQL*Loader: Release 18.0.0.0.0 - Production on Vie Ago 27 19:48:40 2021
+Version 18.4.0.0.0
+
+Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
+
+Archivo de Control:   control.ctl
+Juego de caracteres UTF8 especificado para todas las entradas.
+
+Archivo de Datos:      BlockbusterData.csv
+  Archivo de Errores:     Error.bad
+  Desechar Archivo:  ninguno especificado
+ 
+ (Permitir todos los registros desechados)
+
+Número a cargar: ALL
+Número que omitir: 1
+Errores permitidos: 50
+Continuación:    ninguno especificado
+Ruta de acceso utilizada:      Directa
+
+Tabla TEMPORAL, cargada de cada registro lógico.
+Opción INSERT activa para esta tabla: TRUNCATE
+Opción TRAILING NULLCOLS activada
+
+   Nombre Columna                  Posición   Long  Term Entorno Tipo de Dato
+------------------------------ ---------- ----- ---- ---- ---------------------
+NOMBRE_CLIENTE                      FIRST     *   ;       CHARACTER            
+CORREO_CLIENTE                       NEXT     *   ;       CHARACTER            
+CLIENTE_ACTIVO                       NEXT     *   ;       CHARACTER            
+FECHA_CREACION                       NEXT     *   ;       CHARACTER            
+TIENDA_PREFERIDA                     NEXT     *   ;       CHARACTER            
+DIRECCION_CLIENTE                    NEXT     *   ;       CHARACTER            
+CODIGO_POSTAL_CLIENTE                NEXT     *   ;       CHARACTER            
+CIUDAD_CLIENTE                       NEXT     *   ;       CHARACTER            
+PAIS_CLIENTE                         NEXT     *   ;       CHARACTER            
+FECHA_RENTA                          NEXT     *   ;       CHARACTER            
+FECHA_RETORNO                        NEXT     *   ;       CHARACTER            
+MONTO_A_PAGAR                        NEXT     *   ;       CHARACTER            
+FECHA_PAGO                           NEXT     *   ;       CHARACTER            
+NOMBRE_EMPLEADO                      NEXT     *   ;       CHARACTER            
+CORREO_EMPLEADO                      NEXT     *   ;       CHARACTER            
+EMPLEADO_ACTIVO                      NEXT     *   ;       CHARACTER            
+TIENDA_EMPLEADO                      NEXT     *   ;       CHARACTER            
+USUARIO_EMPLEADO                     NEXT     *   ;       CHARACTER            
+CONTRASENA_EMPLEADO                  NEXT     *   ;       CHARACTER            
+DIRECCION_EMPLEADO                   NEXT     *   ;       CHARACTER            
+CODIGO_POSTAL_EMPLEADO               NEXT     *   ;       CHARACTER            
+CIUDAD_EMPLEADO                      NEXT     *   ;       CHARACTER            
+PAIS_EMPLEADO                        NEXT     *   ;       CHARACTER            
+NOMBRE_TIENDA                        NEXT     *   ;       CHARACTER            
+ENCARGADO_TIENDA                     NEXT     *   ;       CHARACTER            
+DIRECCION_TIENDA                     NEXT     *   ;       CHARACTER            
+CODIGO_POSTAL_TIENDA                 NEXT     *   ;       CHARACTER            
+CIUDAD_TIENDA                        NEXT     *   ;       CHARACTER            
+PAIS_TIENDA                          NEXT     *   ;       CHARACTER            
+TIENDA_PELICULA                      NEXT     *   ;       CHARACTER            
+NOMBRE_PELICULA                      NEXT     *   ;       CHARACTER            
+DESCRIPCION_PELICULA                 NEXT     *   ;       CHARACTER            
+ANIO_LANZAMIENTO                     NEXT     *   ;       CHARACTER            
+DIAS_RENTA                           NEXT     *   ;       CHARACTER            
+COSTO_RENTA                          NEXT     *   ;       CHARACTER            
+DURACION                             NEXT     *   ;       CHARACTER            
+COSTO_POR_DANO                       NEXT     *   ;       CHARACTER            
+CLASIFICACION                        NEXT     *   ;       CHARACTER            
+LENGUAJE_PELICULA                    NEXT     *   ;       CHARACTER            
+CATEGORIA_PELICULA                   NEXT     *   ;       CHARACTER            
+ACTOR_PELICULA                       NEXT     *   ;       CHARACTER            
+
+
+Tabla TEMPORAL:
+  89471 Filas cargadas correctamente.
+  0 Filas no cargadas debido a errores de datos.
+  0 Filas no cargadas porque todas las cláusulas WHEN han fallado.
+  0 Filas no cargadas porque todos los campos eran nulos.
+
+Tamaño de matriz de enlace no utilizado en ruta de acceso directa.
+Filas de la matriz de columnas:    5000
+Bytes de buffer de flujo:  256000
+Bytes de buffer de lectura: 1048576
+
+Total de registros lógicos omitidos:          1
+Total de registros lógicos leídos:       89471
+Total de registros lógicos rechazados:         0
+Total de registros lógicos desechados:        0
+El thread principal de SQL*Loader ha cargado los buffers de flujo total:       47
+El thread de carga de SQL*Loader ha cargado los buffers de flujo total:      184
+
+La ejecución empezó en Vie Ago 27 19:48:40 2021
+La ejecución terminó en Vie Ago 27 19:48:42 2021
+
+Tiempo transcurrido:     00:00:01.75
+Tiempo de CPU:         00:00:00.44

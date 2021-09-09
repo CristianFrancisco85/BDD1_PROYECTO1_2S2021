@@ -1,0 +1,6 @@
+userid="sys/chitopanson85 as SYSDBA"
+control=control.ctl
+log=Log.log
+bad=Error.bad
+data=BlockbusterData.csv
+direct=true
