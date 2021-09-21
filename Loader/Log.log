@@ -1,5 +1,5 @@
 
-SQL*Loader: Release 18.0.0.0.0 - Production on Vie Ago 27 19:48:40 2021
+SQL*Loader: Release 18.0.0.0.0 - Production on Dom Sep 19 18:06:30 2021
 Version 18.4.0.0.0
 
 Copyright (c) 1982, 2019, Oracle and/or its affiliates.  All rights reserved.
@@ -86,8 +86,8 @@ Total de registros lógicos desechados:        0
 El thread principal de SQL*Loader ha cargado los buffers de flujo total:       47
 El thread de carga de SQL*Loader ha cargado los buffers de flujo total:      184
 
-La ejecución empezó en Vie Ago 27 19:48:40 2021
-La ejecución terminó en Vie Ago 27 19:48:42 2021
+La ejecución empezó en Dom Sep 19 18:06:30 2021
+La ejecución terminó en Dom Sep 19 18:06:33 2021
 
-Tiempo transcurrido:     00:00:01.75
-Tiempo de CPU:         00:00:00.44
+Tiempo transcurrido:     00:00:02.61
+Tiempo de CPU:         00:00:00.43

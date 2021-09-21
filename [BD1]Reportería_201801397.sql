@@ -13,7 +13,7 @@ WHERE Titulo = 'SUGAR WONKA';
 SELECT Nombre,Apellido,SUM(Total) AS Total FROM Cliente
 INNER JOIN Renta ON Renta.idCliente= Cliente.idCliente
 GROUP BY Nombre,Apellido
-HAVING COUNT(*)>40;
+HAVING COUNT(*)>=40;
 
 -- ******************************************************************
 -- Reporte 3
@@ -47,11 +47,11 @@ GROUP BY Apellido;
 -- Reporte 6
 -- ****************************************************************** 
 
-SELECT Nombre,Apellido FROM Actor
+SELECT Nombre,Apellido,Pelicula."AÑO" FROM Actor
 INNER JOIN Actor_Pelicula ON  Actor_Pelicula.idActor = Actor.idActor
 INNER JOIN Pelicula ON Pelicula.idPelicula = Actor_Pelicula.idPelicula
-WHERE LOWER(Pelicula.Descripcion) LIKE '%shark%' OR LOWER(Pelicula.Descripcion) LIKE '%crocodile%'
-GROUP BY Nombre,Apellido
+WHERE LOWER(Pelicula.Descripcion) LIKE '%shark%' AND LOWER(Pelicula.Descripcion) LIKE '%crocodile%'
+GROUP BY Nombre,Apellido,Pelicula."AÑO"
 ORDER BY Apellido ASC;
 
 -- ******************************************************************
@@ -72,7 +72,7 @@ SELECT ROUND(AVG(multa-costo),2) AS Promedio,categoria.nombre FROM Pelicula
 INNER JOIN Categoria_Pelicula ON Categoria_Pelicula.idPelicula = Pelicula.idPelicula
 INNER JOIN Categoria ON Categoria.idCategoria = Categoria_Pelicula.idCategoria
 GROUP BY categoria.nombre
-HAVING ROUND(AVG(multa-costo),2)>=17;
+HAVING ROUND(AVG(multa-costo),2)>17;
 
 -- ******************************************************************
 -- Reporte 9
@@ -227,7 +227,7 @@ ORDER BY Conteo DESC;
 -- Reporte 14
 -- ****************************************************************** 
 
-SELECT NombrePais,NombreCiudad FROM 
+SELECT DISTINCT NombrePais,NombreCiudad FROM 
 (
 SELECT Pais.Nombre AS NombrePais,Ciudad.Nombre AS NombreCiudad,COUNT(*) AS Conteo FROM Ciudad
 INNER JOIN Pais ON Pais.idPais = Ciudad.idPais
@@ -306,7 +306,6 @@ GROUP BY Pais.Nombre;
 -- Reporte 17
 -- ****************************************************************** 
 
-
 SELECT NombreCiudad,Conteo FROM 
 (SELECT Ciudad.Nombre AS NombreCiudad,COUNT(*)Conteo FROM Ciudad
 INNER JOIN Pais ON Pais.idPais = Ciudad.idPais
@@ -322,7 +321,7 @@ INNER JOIN Direccion ON Direccion.idCiudad = Ciudad.idCiudad
 INNER JOIN Cliente ON Cliente.idDireccion = Direccion.idDIreccion
 INNER JOIN Renta ON Renta.idCliente= Cliente.idCliente
 WHERE Ciudad.Nombre = 'Dayton'
-)
+);
 
 -- ******************************************************************
 -- Reporte 18
@@ -331,12 +330,28 @@ WHERE Ciudad.Nombre = 'Dayton'
 
 
 -- ******************************************************************
--- Reporte 19
+-- Reporte 19 
 -- ****************************************************************** 
 
-
+SELECT Cliente.Nombre,Cliente.Apellido,EXTRACT(MONTH FROM Renta.fechaRenta)AS Mes FROM Cliente 
+INNER JOIN Renta ON Renta.idCliente = Cliente.idCliente
+WHERE Cliente.idCliente IN (SELECT Cliente.idCliente FROM Cliente 
+INNER JOIN Renta ON Renta.idCliente = Cliente.idCliente
+GROUP BY Cliente.idCliente
+ORDER BY COUNT(*) DESC
+FETCH FIRST 5 ROW ONLY) OR Cliente.idCliente IN(SELECT Cliente.idCliente FROM Cliente 
+INNER JOIN Renta ON Renta.idCliente = Cliente.idCliente
+GROUP BY Cliente.idCliente
+ORDER BY COUNT(*) ASC
+FETCH FIRST 5 ROW ONLY);
 
 -- ******************************************************************
 -- Reporte 20
 -- ****************************************************************** 
+
+SELECT Ciudad.Nombre FROM Ciudad
+INNER JOIN Direccion ON Direccion.idCiudad = Ciudad.idCiudad
+INNER JOIN Cliente ON Cliente.idDireccion = DIreccion.idDireccion
+INNER JOIN Renta ON Renta.idCliente = Cliente.idCliente
+WHERE EXTRACT(MONTH FROM Renta.fecharenta)=7;
 
